@@ -3,4 +3,11 @@ sourceCompatibility = 1.7
 
 sourceSets.main.java.srcDirs = [ "src/" ]
 
+jar {
+    from ('./src/') {
+        include 'META-INF/services/javax.xml.bind.JAXBContext'
+    }
+}
+
+
 eclipse.project.name = appName + "-core"

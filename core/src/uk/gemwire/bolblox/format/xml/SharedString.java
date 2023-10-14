@@ -42,17 +42,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "content"
 })
 @XmlRootElement(name = "SharedString")
-public class SharedString {
+public class SharedString extends Property {
 
     @XmlValue
     protected java.lang.String content;
     @XmlAttribute(name = "md5")
     @XmlSchemaType(name = "anySimpleType")
     protected java.lang.String md5;
-    @XmlAttribute(name = "name")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected java.lang.String name;
 
     /**
      * Gets the value of the content property.
@@ -100,30 +96,6 @@ public class SharedString {
      */
     public void setMd5(java.lang.String value) {
         this.md5 = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public java.lang.String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public void setName(java.lang.String value) {
-        this.name = value;
     }
 
 }

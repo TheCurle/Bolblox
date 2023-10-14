@@ -52,7 +52,7 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
         implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-        implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+        implementation group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.0'
 
     }
 }
@@ -74,7 +74,7 @@ project(":html") {
         api "com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion:sources"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion:sources"
         implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-        implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+        implementation group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.0'
 
     }
 }
@@ -89,7 +89,7 @@ project(":core") {
         api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
         implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-        implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+        implementation group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.moxy', version: '2.5.0'
 
     }
 }

@@ -42,14 +42,10 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "value"
 })
 @XmlRootElement(name = "SecurityCapabilities")
-public class SecurityCapabilities {
+public class SecurityCapabilities extends Property {
 
     @XmlValue
     protected BigInteger value;
-    @XmlAttribute(name = "name", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected java.lang.String name;
 
     /**
      * Gets the value of the value property.
@@ -73,30 +69,6 @@ public class SecurityCapabilities {
      */
     public void setValue(BigInteger value) {
         this.value = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public java.lang.String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public void setName(java.lang.String value) {
-        this.name = value;
     }
 
 }

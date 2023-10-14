@@ -46,16 +46,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "max"
 })
 @XmlRootElement(name = "Rect2D")
-public class Rect2D {
+public class Rect2D extends Property {
 
     @XmlElement(required = true)
     protected Min min;
     @XmlElement(required = true)
     protected Max max;
-    @XmlAttribute(name = "name", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected java.lang.String name;
 
     /**
      * Gets the value of the min property.
@@ -103,30 +99,6 @@ public class Rect2D {
      */
     public void setMax(Max value) {
         this.max = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public java.lang.String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public void setName(java.lang.String value) {
-        this.name = value;
     }
 
 }

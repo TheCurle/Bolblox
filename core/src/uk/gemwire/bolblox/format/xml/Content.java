@@ -46,16 +46,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "_null"
 })
 @XmlRootElement(name = "Content")
-public class Content {
+public class Content extends Property {
 
     @XmlSchemaType(name = "anyURI")
     protected java.lang.String url;
     @XmlElement(name = "null")
     protected Null _null;
-    @XmlAttribute(name = "name", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected java.lang.String name;
 
     /**
      * Gets the value of the url property.
@@ -103,30 +99,6 @@ public class Content {
      */
     public void setNull(Null value) {
         this._null = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public java.lang.String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public void setName(java.lang.String value) {
-        this.name = value;
     }
 
 }

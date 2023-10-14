@@ -97,7 +97,7 @@ public class Properties {
         @XmlElement(name = "string", type = String.class),
         @XmlElement(name = "token", type = Token.class)
     })
-    protected List<Object> sharedStringOrBinaryStringOrColor3;
+    protected List<Property> sharedStringOrBinaryStringOrColor3;
     @XmlElement(name = "OptionalCoordinateFrame")
     protected OptionalCoordinateFrame optionalCoordinateFrame;
 
@@ -146,9 +146,9 @@ public class Properties {
      * 
      * 
      */
-    public List<Object> getSharedStringOrBinaryStringOrColor3() {
+    public List<Property> getSharedStringOrBinaryStringOrColor3() {
         if (sharedStringOrBinaryStringOrColor3 == null) {
-            sharedStringOrBinaryStringOrColor3 = new ArrayList<Object>();
+            sharedStringOrBinaryStringOrColor3 = new ArrayList<Property>();
         }
         return this.sharedStringOrBinaryStringOrColor3;
     }

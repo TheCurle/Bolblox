@@ -51,7 +51,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "cachedFaceId"
 })
 @XmlRootElement(name = "Font")
-public class Font {
+public class Font extends Property {
 
     @XmlElement(name = "Family", required = true)
     protected Family family;
@@ -63,10 +63,6 @@ public class Font {
     protected java.lang.String style;
     @XmlElement(name = "CachedFaceId", required = true)
     protected CachedFaceId cachedFaceId;
-    @XmlAttribute(name = "name", required = true)
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NCName")
-    protected java.lang.String name;
 
     /**
      * Gets the value of the family property.
@@ -162,30 +158,6 @@ public class Font {
      */
     public void setCachedFaceId(CachedFaceId value) {
         this.cachedFaceId = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public java.lang.String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link java.lang.String }
-     *     
-     */
-    public void setName(java.lang.String value) {
-        this.name = value;
     }
 
 }

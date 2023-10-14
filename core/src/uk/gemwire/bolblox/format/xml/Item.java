@@ -142,4 +142,18 @@ public class Item {
         this.referent = value;
     }
 
+
+    public <T extends Property> T getProperty(java.lang.String name) {
+        for (Object o : getItemOrProperties()) {
+            if (o instanceof Properties) {
+                Properties p = (Properties) o;
+                for (Property i : p.getSharedStringOrBinaryStringOrColor3()) {
+                    if (i.getName().equals(name)) {
+                        return (T) i;
+                    }
+                }
+            }
+        }
+        return null;
+    }
 }
