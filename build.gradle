@@ -51,8 +51,9 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx:gdx-bullet-platform:$gdxVersion:natives-desktop"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
-        api "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.1"
-        
+        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+        implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+
     }
 }
 
@@ -72,8 +73,9 @@ project(":html") {
         api "com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-gwt:$gdxControllersVersion:sources"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion:sources"
-        api "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.1"
-        
+        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+        implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+
     }
 }
 
@@ -86,7 +88,8 @@ project(":core") {
         api "com.badlogicgames.gdx:gdx-bullet:$gdxVersion"
         api "com.badlogicgames.gdx-controllers:gdx-controllers-core:$gdxControllersVersion"
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
-        api "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.1"
-        
+        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+        implementation group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.1'
+
     }
 }
