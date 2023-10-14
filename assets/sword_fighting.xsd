@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <xs:attribute name="noNamespaceSchemaLocation" type="xs:anyURI"/>
+    <xs:element name="roblox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="External"/>
+                <xs:element maxOccurs="unbounded" ref="Item"/>
+                <xs:element ref="SharedStrings"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="required" type="xs:integer"/>
+            <xs:attribute ref="noNamespaceSchemaLocation" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="External" type="xs:NCName"/>
+    <xs:element name="SharedStrings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="SharedString"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Item">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="Item"/>
+                <xs:element ref="Properties"/>
+            </xs:choice>
+            <xs:attribute name="class" use="required" type="xs:NCName"/>
+            <xs:attribute name="referent" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Properties">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="SharedString"/>
+                    <xs:element ref="BinaryString"/>
+                    <xs:element ref="Color3"/>
+                    <xs:element ref="Color3uint8"/>
+                    <xs:element ref="Content"/>
+                    <xs:element ref="CoordinateFrame"/>
+                    <xs:element ref="Font"/>
+                    <xs:element ref="NumberRange"/>
+                    <xs:element ref="PhysicalProperties"/>
+                    <xs:element ref="ProtectedString"/>
+                    <xs:element ref="Rect2D"/>
+                    <xs:element ref="Ref"/>
+                    <xs:element ref="SecurityCapabilities"/>
+                    <xs:element ref="UDim2"/>
+                    <xs:element ref="UniqueId"/>
+                    <xs:element ref="Vector2"/>
+                    <xs:element ref="Vector3"/>
+                    <xs:element ref="bool"/>
+                    <xs:element ref="double"/>
+                    <xs:element ref="float"/>
+                    <xs:element ref="int"/>
+                    <xs:element ref="int64"/>
+                    <xs:element ref="string"/>
+                    <xs:element ref="token"/>
+                </xs:choice>
+                <xs:element minOccurs="0" ref="OptionalCoordinateFrame"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="BinaryString">
+        <xs:complexType mixed="true">
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Color3">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="R"/>
+                <xs:element ref="G"/>
+                <xs:element ref="B"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="R" type="xs:decimal"/>
+    <xs:element name="G" type="xs:decimal"/>
+    <xs:element name="B" type="xs:decimal"/>
+    <xs:element name="Color3uint8">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Content">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="url"/>
+                <xs:element ref="null"/>
+            </xs:choice>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="null">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="CoordinateFrame">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="X"/>
+                <xs:element ref="Y"/>
+                <xs:element ref="Z"/>
+                <xs:element ref="R00"/>
+                <xs:element ref="R01"/>
+                <xs:element ref="R02"/>
+                <xs:element ref="R10"/>
+                <xs:element ref="R11"/>
+                <xs:element ref="R12"/>
+                <xs:element ref="R20"/>
+                <xs:element ref="R21"/>
+                <xs:element ref="R22"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Font">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Family"/>
+                <xs:element ref="Weight"/>
+                <xs:element ref="Style"/>
+                <xs:element ref="CachedFaceId"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Family">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="url"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Weight" type="xs:integer"/>
+    <xs:element name="Style" type="xs:NCName"/>
+    <xs:element name="CachedFaceId">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="url"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="NumberRange">
+        <xs:complexType mixed="true">
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PhysicalProperties">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="CustomPhysics"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CustomPhysics" type="xs:boolean"/>
+    <xs:element name="ProtectedString">
+        <xs:complexType mixed="true">
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Rect2D">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="min"/>
+                <xs:element ref="max"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="min">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="X"/>
+                <xs:element ref="Y"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="max">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="X"/>
+                <xs:element ref="Y"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Ref">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:NCName">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SecurityCapabilities">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UDim2">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="XS"/>
+                <xs:element ref="XO"/>
+                <xs:element ref="YS"/>
+                <xs:element ref="YO"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XS" type="xs:double"/>
+    <xs:element name="XO" type="xs:integer"/>
+    <xs:element name="YS" type="xs:decimal"/>
+    <xs:element name="YO" type="xs:integer"/>
+    <xs:element name="UniqueId">
+        <xs:complexType mixed="true">
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Vector2">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="X"/>
+                <xs:element ref="Y"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Vector3">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="X"/>
+                <xs:element ref="Y"/>
+                <xs:element ref="Z"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="bool">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:boolean">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="double">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:decimal">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="float">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:decimal">
+                    <xs:attribute name="name" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="int">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="int64">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="string">
+        <xs:complexType mixed="true">
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="token">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="name" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="OptionalCoordinateFrame">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="CFrame"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CFrame">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="X"/>
+                <xs:element ref="Y"/>
+                <xs:element ref="Z"/>
+                <xs:element ref="R00"/>
+                <xs:element ref="R01"/>
+                <xs:element ref="R02"/>
+                <xs:element ref="R10"/>
+                <xs:element ref="R11"/>
+                <xs:element ref="R12"/>
+                <xs:element ref="R20"/>
+                <xs:element ref="R21"/>
+                <xs:element ref="R22"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SharedString">
+        <xs:complexType mixed="true">
+            <xs:attribute name="md5"/>
+            <xs:attribute name="name" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="X" type="xs:double"/>
+    <xs:element name="Y" type="xs:double"/>
+    <xs:element name="Z" type="xs:double"/>
+    <xs:element name="R00" type="xs:double"/>
+    <xs:element name="R01" type="xs:double"/>
+    <xs:element name="R02" type="xs:double"/>
+    <xs:element name="R10" type="xs:double"/>
+    <xs:element name="R11" type="xs:double"/>
+    <xs:element name="R12" type="xs:double"/>
+    <xs:element name="R20" type="xs:double"/>
+    <xs:element name="R21" type="xs:double"/>
+    <xs:element name="R22" type="xs:double"/>
+    <xs:element name="url" type="xs:anyURI"/>
+</xs:schema>
