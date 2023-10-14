@@ -14,8 +14,7 @@ import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.ScreenUtils;
-import uk.gemwire.bolblox.format.xml.Item;
-import uk.gemwire.bolblox.format.xml.Roblox;
+import uk.gemwire.bolblox.format.xml.*;
 
 import javax.xml.bind.JAXBContext;
 import java.util.ArrayList;
@@ -76,12 +75,19 @@ public class Bolblox extends ApplicationAdapter {
 		ModelBuilder modelBuilder = new ModelBuilder();
 
 		for (Item part : parts) {
+			Token shape = part.getProperty("shape");
+			Vector3 size = part.getProperty("size");
+			Int color = part.getProperty("BrickColor");
 
+			Model m;
+
+			if (shape.getValue().intValue() == 1) {
+				m = modelBuilder.createBox((float) size.getX(), (float) size.getY(), (float) size.getZ(), new Material(ColorAttribute.createDiffuse(163/255f, 162/255f, 165/255f, 1f)),
+						VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
+				partModels.add(m);
+				instances.add(new ModelInstance(m));
+			}
 		}
-
-		 modelBuilder.createBox(1f, 1f, 1f,
-				new Material(ColorAttribute.createDiffuse(Color.GREEN)),
-				VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal);
 
 
 		environment = new Environment();
